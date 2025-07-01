@@ -36,6 +36,9 @@ class MemBmvForward:
 
 
 class TimeBmvBackward:
+    warmup_time = 0.0  # for some reason backward is called multiple times if not 0
+    number = 1  # Avoids calling backward multiple times
+
     params = (
         [500, 5000],
         [((1,), (10,)), ((10,), (1,)), ((1, 1), (1, 10)), ((1, 1), (2, 5))],
@@ -53,6 +56,9 @@ class TimeBmvBackward:
 
 
 class MemBmvBackward:
+    warmup_time = 0.0  # for some reason backward is called multiple times if not 0
+    number = 1  # Avoids calling backward multiple times
+
     params = (
         [500, 5000],
         [((1,), (10,)), ((10,), (1,)), ((1, 1), (1, 10)), ((1, 1), (2, 5))],
