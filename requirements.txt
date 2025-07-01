@@ -1,4 +1,5 @@
 asv  # for benchmarking
 pytest  # for testing
+flake8  # for code style checks
 
 -e .
