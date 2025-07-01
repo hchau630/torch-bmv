@@ -1,5 +1,6 @@
 asv  # for benchmarking
 pytest  # for testing
+pytest-cov  # for coverage reports
 flake8  # for code style checks
 
 -e .
