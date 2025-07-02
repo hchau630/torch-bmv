@@ -1,4 +1,5 @@
 from torch import Tensor
+import torch
 
 
 def bmv(A: Tensor, x: Tensor, naive: bool = False) -> Tensor:
@@ -20,7 +21,8 @@ def bmv(A: Tensor, x: Tensor, naive: bool = False) -> Tensor:
 
     if naive:
         # Don't optimize, just do the multiplication.
-        return (A @ x.unsqueeze(-1)).squeeze(-1)
+        # return (A @ x.unsqueeze(-1)).squeeze(-1)
+        return torch.einsum("...ij,...j->...i", A, x)
 
     nbatchdim = max(A.ndim - 2, x.ndim - 1)
     A = A[(None,) * (nbatchdim - A.ndim + 2)]
